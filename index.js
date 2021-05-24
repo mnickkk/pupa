@@ -20,6 +20,10 @@ module.exports = (template, data) => {
 			for (const property of key.split('.')) {
 				result = result ? result[property] : '';
 			}
+			
+			if(typeof result === "object") {
+			  result = JSON.stringify(result);	
+			}
 
 			return htmlEscape(String(result));
 		});
