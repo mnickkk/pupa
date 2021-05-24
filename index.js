@@ -37,6 +37,10 @@ module.exports = (template, data) => {
 		for (const property of key.split('.')) {
 			result = result ? result[property] : '';
 		}
+		
+		if(!result) {
+			return template
+		}
 
 		return String(result);
 	});
